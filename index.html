@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Countdown 1080 giờ</title>
+  <title>Countdown đến 1/9/2025 12:00</title>
   <style>
     html, body {
       margin: 0;
@@ -33,11 +33,11 @@
   <div class="countdown" id="countdown">Đang tải...</div>
 
   <script>
-    // Tính thời gian kết thúc (1080 giờ từ thời điểm tải trang)
-    const endTime = new Date().getTime() + 1080 * 60 * 60 * 1000;
+    // Thời điểm kết thúc: 1/9/2025 12:00 trưa (giờ địa phương)
+    const endTime = new Date("2025-08-31T23:59:00");
 
     function updateCountdown() {
-      const now = new Date().getTime();
+      const now = new Date();
       const distance = endTime - now;
 
       if (distance <= 0) {
@@ -46,11 +46,7 @@
       }
 
       const totalHours = Math.floor(distance / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-      document.getElementById("countdown").innerHTML =
-        `${totalHours} giờ ${minutes} phút ${seconds} giây`;
+      document.getElementById("countdown").innerHTML = `${totalHours} giờ còn lại`;
     }
 
     updateCountdown();
